@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Acties">
+  <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <meta name="robots" content="noindex">
+  <title>Actieregister</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <h1 id="page-title">Actieregister</h1>
+        <button id="add-btn" class="icon-btn" aria-label="Nieuwe actie" hidden>
+          <svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg>
+        </button>
+      </div>
+      <div id="list-controls" hidden>
+        <div class="search-row">
+          <label class="search">
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input id="search" type="search" placeholder="Zoeken" autocomplete="off" enterkeyhint="search">
+          </label>
+          <button id="filter-btn" class="pill-btn" aria-label="Filters en groeperen">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span id="filter-count" class="badge-count" hidden></span>
+          </button>
+        </div>
+        <nav id="quick" class="chips" aria-label="Snelle weergaven"></nav>
+      </div>
+    </header>
+
+    <main id="main"></main>
+
+    <nav class="tabbar" id="tabbar" hidden>
+      <button data-tab="lijst" class="active">
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="4.5" cy="6" r="1.5" fill="currentColor"/><circle cx="4.5" cy="12" r="1.5" fill="currentColor"/><circle cx="4.5" cy="18" r="1.5" fill="currentColor"/></svg>
+        <span>Acties</span>
+      </button>
+      <button data-tab="overzicht">
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M5 20V11M12 20V4M19 20v-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <span>Overzicht</span>
+      </button>
+      <button data-tab="bestand">
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M7 3h7l5 5v13H7z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M14 3v5h5" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></svg>
+        <span>Bestand</span>
+        <span id="pending-dot" class="tab-dot" hidden></span>
+      </button>
+    </nav>
+  </div>
+
+  <div id="sheet-root"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <input id="file-input" type="file" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden>
+
+  <script src="vendor/exceljs.min.js"></script>
+  <script src="js/register.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

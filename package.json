@@ -1,0 +1,14 @@
+{
+  "name": "actieregister",
+  "version": "1.0.0",
+  "private": true,
+  "description": "iPhone-webapp om het actieregister (Excel) als to-do-lijst te gebruiken",
+  "scripts": {
+    "fixture": "python3 tests/make_fixture.py",
+    "test": "python3 tests/make_fixture.py && node tests/register.test.js",
+    "start": "npx --yes http-server -c-1 -p 8080 ."
+  },
+  "devDependencies": {
+    "exceljs": "4.4.0"
+  }
+}
